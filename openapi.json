@@ -1,0 +1,308 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "GPT-S Signal Engine",
+    "version": "1.0.0",
+    "description": "API untuk menghasilkan sinyal trading berdasarkan analisa indikator klasik (EMA, RSI, MACD, BB, StochRSI), struktur Smart Money Concepts (SMC), Volume Delta, Orderbook, dan data On-Chain Solana."
+  },
+  "paths": {
+    "/.well-known/ai-plugin.json": {
+      "get": {
+        "summary": "AI Plugin manifest",
+        "operationId": "getAiPluginManifest",
+        "responses": {
+          "200": {
+            "description": "AI Plugin manifest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generate_signal": {
+      "post": {
+        "summary": "Bangun sinyal trading dari data analisa yang komprehensif",
+        "operationId": "generateSignal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalysisData"
+              },
+              "example": {
+                "symbol": "BTCUSDT",
+                "timeframe": "5m",
+                "indicators": {
+                  "ema_signal": "strong_bullish_aligned",
+                  "rsi_signal": "bullish_momentum",
+                  "rsi_divergence": "no_divergence",
+                  "macd_crossover_signal": "bullish_crossover",
+                  "bb_signal": "neutral_band_range",
+                  "stoch_signal": "bullish_momentum_stoch"
+                },
+                "smc": {
+                  "bos_choch": {
+                    "type": "bullish_bos",
+                    "level": 20500.0,
+                    "direction": "up",
+                    "timestamp": "2025-06-04T07:00:00Z"
+                  },
+                  "fvg": {
+                    "type": "bullish_fvg",
+                    "zone": [20300.0, 20450.0],
+                    "timestamp": "2025-06-04T06:50:00Z"
+                  },
+                  "order_block": {
+                    "bullish_ob": {
+                      "start_time": "2025-06-04T06:45:00Z",
+                      "high": 20320.0,
+                      "low": 20280.0,
+                      "type": "bullish",
+                      "mitigated": false
+                    }
+                  }
+                },
+                "volume_delta": {
+                  "current_delta": 15000,
+                  "cvd_trend": "bullish"
+                },
+                "orderbook": {
+                  "bid_wall": 20000.0,
+                  "ask_wall": 21000.0,
+                  "imbalance_ratio": 0.6
+                },
+                "on_chain": {
+                  "whale_movement": "inflow",
+                  "smart_money_net_flow": 1000000
+                },
+                "macro_data": {
+                  "funding_rate": 0.01,
+                  "open_interest_change": "increasing"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sinyal trading berhasil dibuat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TradingSignal"
+                },
+                "example": {
+                  "signal": "BUY",
+                  "entry": 20700.0,
+                  "stop_loss": 20550.0,
+                  "take_profit_1": 20850.0,
+                  "take_profit_2": 21000.0,
+                  "take_profit_3": 21200.0,
+                  "reason": "Konfluensi kuat: Bullish BOS, FVG terisi sebagian, Order Block belum dimitigasi, Volume Delta positif, dan pergerakan whale mendukung."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalysisData": {
+        "type": "object",
+        "description": "Data input komprehensif dari berbagai modul analisis.",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Simbol trading (misal: BTCUSDT)"
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe analisis (misal: 5m, 15m, 1h)"
+          },
+          "indicators": {
+            "type": "object",
+            "description": "Hasil analisis indikator klasik (dari classic_indicators.py)",
+            "properties": {
+              "ema_signal": { "type": "string", "description": "Sinyal EMA (e.g., strong_bullish_aligned)" },
+              "rsi_signal": { "type": "string", "description": "Sinyal RSI (e.g., bullish_momentum, overbought)" },
+              "rsi_divergence": { "type": "string", "description": "Sinyal divergensi RSI (e.g., potential_bullish_divergence)" },
+              "macd_crossover_signal": { "type": "string", "description": "Sinyal crossover MACD (e.g., bullish_crossover)" },
+              "bb_signal": { "type": "string", "description": "Sinyal Bollinger Bands (e.g., overbought_band_extreme, squeeze_potential)" },
+              "stoch_signal": { "type": "string", "description": "Sinyal Stochastic RSI (e.g., oversold_bullish_cross)" }
+            },
+            "required": ["ema_signal", "rsi_signal", "macd_crossover_signal", "bb_signal", "stoch_signal"]
+          },
+          "smc": {
+            "type": "object",
+            "description": "Hasil analisis struktur SMC (dari smc_structure.py)",
+            "properties": {
+              "swing_points": {
+                "type": "object",
+                "properties": {
+                  "swing_highs": { "type": "array", "items": { "type": "string", "format": "date-time" } },
+                  "swing_lows": { "type": "array", "items": { "type": "string", "format": "date-time" } }
+                }
+              },
+              "bos_choch": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string", "enum": ["bullish_bos", "bearish_bos", "bullish_choch", "bearish_choch", "no_signal"] },
+                  "level": { "type": "number", "format": "float" },
+                  "direction": { "type": "string", "enum": ["up", "down", "none"] },
+                  "timestamp": { "type": "string", "format": "date-time" },
+                  "current_bias": { "type": "string", "enum": ["bullish", "bearish", "ranging", "unknown"] }
+                }
+              },
+              "fvg": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string", "enum": ["bullish_fvg", "bearish_fvg", "no_fvg"] },
+                  "zone": { "type": "array", "items": { "type": "number", "format": "float" } },
+                  "timestamp": { "type": "string", "format": "date-time" },
+                  "all_unmitigated_fvg": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "type": "string" },
+                        "zone": { "type": "array", "items": { "type": "number" } },
+                        "timestamp": { "type": "string", "format": "date-time" }
+                      }
+                    }
+                  }
+                }
+              },
+              "eq_zone": {
+                "type": "object",
+                "properties": {
+                  "eq_high": { "type": "array", "items": { "type": "number", "format": "float" } },
+                  "eq_low": { "type": "array", "items": { "type": "number", "format": "float" } }
+                }
+              },
+              "order_block": {
+                "type": "object",
+                "properties": {
+                  "bullish_ob": {
+                    "type": "object",
+                    "properties": {
+                      "start_time": { "type": "string", "format": "date-time" },
+                      "high": { "type": "number", "format": "float" },
+                      "low": { "type": "number", "format": "float" },
+                      "type": { "type": "string", "enum": ["bullish"] },
+                      "candle_type": { "type": "string" },
+                      "mitigated": { "type": "boolean" }
+                    }
+                  },
+                  "bearish_ob": {
+                    "type": "object",
+                    "properties": {
+                      "start_time": { "type": "string", "format": "date-time" },
+                      "high": { "type": "number", "format": "float" },
+                      "low": { "type": "number", "format": "float" },
+                      "type": { "type": "string", "enum": ["bearish"] },
+                      "candle_type": { "type": "string" },
+                      "mitigated": { "type": "boolean" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "volume_delta": {
+            "type": "object",
+            "description": "Data Volume Delta dan CVD.",
+            "properties": {
+              "current_delta": { "type": "number", "format": "float" },
+              "cvd_trend": { "type": "string", "enum": ["bullish", "bearish", "neutral"] }
+            }
+          },
+          "orderbook": {
+            "type": "object",
+            "description": "Data orderbook (wall, spoofing, imbalance).",
+            "properties": {
+              "bid_wall": { "type": "number", "format": "float", "nullable": true },
+              "ask_wall": { "type": "number", "format": "float", "nullable": true },
+              "imbalance_ratio": { "type": "number", "format": "float" },
+              "spoofing_detected": { "type": "boolean", "nullable": true }
+            }
+          },
+          "on_chain": {
+            "type": "object",
+            "description": "Data on-chain Solana.",
+            "properties": {
+              "whale_movement": { "type": "string", "enum": ["inflow", "outflow", "neutral"] },
+              "smart_money_net_flow": { "type": "number", "format": "float" },
+              "significant_transactions": { "type": "array", "items": { "type": "object" }, "nullable": true }
+            },
+            "nullable": true
+          },
+          "macro_data": {
+            "type": "object",
+            "description": "Data makro dan sentimen opsional.",
+            "properties": {
+              "funding_rate": { "type": "number", "format": "float" },
+              "open_interest_change": { "type": "string", "enum": ["increasing", "decreasing", "neutral"] },
+              "news_sentiment": { "type": "string", "nullable": true }
+            },
+            "nullable": true
+          }
+        },
+        "required": ["symbol", "timeframe", "indicators", "smc", "volume_delta", "orderbook"]
+      },
+      "TradingSignal": {
+        "type": "object",
+        "description": "Sinyal trading yang dihasilkan berdasarkan analisis konfluensi.",
+        "properties": {
+          "signal": {
+            "type": "string",
+            "enum": ["BUY", "SELL", "NO_SIGNAL"],
+            "description": "Jenis sinyal trading (BUY, SELL, atau NO_SIGNAL)."
+          },
+          "entry": {
+            "type": "number",
+            "format": "float",
+            "description": "Harga masuk yang direkomendasikan."
+          },
+          "stop_loss": {
+            "type": "number",
+            "format": "float",
+            "description": "Level Stop Loss yang direkomendasikan."
+          },
+          "take_profit_1": {
+            "type": "number",
+            "format": "float",
+            "description": "Level Take Profit pertama."
+          },
+          "take_profit_2": {
+            "type": "number",
+            "format": "float",
+            "description": "Level Take Profit kedua."
+          },
+          "take_profit_3": {
+            "type": "number",
+            "format": "float",
+            "description": "Level Take Profit ketiga (opsional)."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Narasi singkat menjelaskan konfluensi utama di balik sinyal."
+          },
+          "confidence_score": {
+            "type": "number",
+            "format": "float",
+            "description": "Skor kepercayaan sinyal (0-1, opsional)."
+          }
+        },
+        "required": ["signal", "reason"]
+      }
+    }
+  }
+}
