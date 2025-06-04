@@ -1,0 +1,348 @@
+2025-06-04 04:22:16,522 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 04:22:16,523 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 04:22:16,526 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 04:22:16,527 - __main__ - INFO - Harga Penutupan Terakhir: 212.4349, Harga Pembukaan Terakhir: 200.6400
+2025-06-04 04:22:16,527 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 04:22:16,533 - __main__ - INFO -   ema_9: 202.3532
+2025-06-04 04:22:16,533 - __main__ - INFO -   ema_21: 199.0848
+2025-06-04 04:22:16,533 - __main__ - INFO -   ema_50: 193.2253
+2025-06-04 04:22:16,534 - __main__ - INFO -   ema_100: 184.2583
+2025-06-04 04:22:16,534 - __main__ - INFO -   ema_200: 168.7236
+2025-06-04 04:22:16,534 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 04:22:16,534 - __main__ - INFO -   rsi: 56.8877
+2025-06-04 04:22:16,534 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 04:22:16,534 - __main__ - INFO -   macd: 3.4136
+2025-06-04 04:22:16,535 - __main__ - INFO -   macd_signal_line: 2.9036
+2025-06-04 04:22:16,535 - __main__ - INFO -   macd_hist: 0.5101
+2025-06-04 04:22:16,535 - __main__ - INFO -   macd_trend: bullish
+2025-06-04 04:22:16,535 - __main__ - INFO -   macd_crossover_signal: bullish_crossover
+2025-06-04 04:22:16,535 - __main__ - INFO -   bb_upper: 213.9195
+2025-06-04 04:22:16,535 - __main__ - INFO -   bb_lower: 183.5598
+2025-06-04 04:22:16,535 - __main__ - INFO -   bb_middle: 198.7397
+2025-06-04 04:22:16,535 - __main__ - INFO -   bb_signal: neutral_band
+2025-06-04 04:22:16,536 - __main__ - INFO -   stoch_k: 0.5494
+2025-06-04 04:22:16,536 - __main__ - INFO -   stoch_d: 0.4186
+2025-06-04 04:22:16,536 - __main__ - INFO -   stoch_signal: bullish
+2025-06-04 04:22:16,536 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 04:22:16,570 - __main__ - INFO -   swing_points: 24 Swing Highs, 25 Swing Lows
+2025-06-04 04:22:16,571 - __main__ - INFO -   bos_choch: {'type': 'bullish_choch_potential', 'level': np.float64(204.88450222395682), 'direction': 'up'}
+2025-06-04 04:22:16,571 - __main__ - INFO -   fvg: {'type': 'bullish_fvg', 'zone': [np.float64(201.5326644392674), np.float64(211.37270937533384)]}
+2025-06-04 04:22:16,571 - __main__ - INFO -   eq_zone: {'eq_high': [np.float64(178.24), np.float64(193.79), np.float64(197.28), np.float64(211.65)], 'eq_low': [np.float64(191.58), np.float64(195.32), np.float64(199.48), np.float64(209.55)]}
+2025-06-04 04:22:16,571 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 03:47:16.523120'), 'high': np.float64(190.8455231290309), 'low': np.float64(188.88304163590126), 'type': 'bullish'}, 'bearish_ob': {'start_time': Timestamp('2025-06-04 03:42:16.523120'), 'high': np.float64(206.62809979935003), 'low': np.float64(204.5331487759506), 'type': 'bearish'}}
+2025-06-04 04:22:16,572 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 04:33:22,943 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 04:33:22,943 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 04:33:22,945 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 04:33:22,945 - __main__ - INFO - Harga Penutupan Terakhir: 200.9847, Harga Pembukaan Terakhir: 191.2153
+2025-06-04 04:33:22,945 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 04:33:22,950 - __main__ - INFO -   ema_9: 198.9523
+2025-06-04 04:33:22,950 - __main__ - INFO -   ema_21: 197.2752
+2025-06-04 04:33:22,950 - __main__ - INFO -   ema_50: 192.6027
+2025-06-04 04:33:22,950 - __main__ - INFO -   ema_100: 184.2709
+2025-06-04 04:33:22,950 - __main__ - INFO -   ema_200: 169.3766
+2025-06-04 04:33:22,950 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 04:33:22,950 - __main__ - INFO -   rsi: 52.8279
+2025-06-04 04:33:22,950 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 04:33:22,950 - __main__ - INFO -   macd: 2.0916
+2025-06-04 04:33:22,950 - __main__ - INFO -   macd_signal_line: 2.2846
+2025-06-04 04:33:22,950 - __main__ - INFO -   macd_hist: -0.1930
+2025-06-04 04:33:22,950 - __main__ - INFO -   macd_trend: bearish
+2025-06-04 04:33:22,950 - __main__ - INFO -   macd_crossover_signal: no_crossover
+2025-06-04 04:33:22,950 - __main__ - INFO -   bb_upper: 209.0396
+2025-06-04 04:33:22,950 - __main__ - INFO -   bb_lower: 185.8167
+2025-06-04 04:33:22,950 - __main__ - INFO -   bb_middle: 197.4282
+2025-06-04 04:33:22,950 - __main__ - INFO -   bb_signal: cross_above_middle
+2025-06-04 04:33:22,950 - __main__ - INFO -   stoch_k: 0.4204
+2025-06-04 04:33:22,950 - __main__ - INFO -   stoch_d: 0.5959
+2025-06-04 04:33:22,950 - __main__ - INFO -   stoch_signal: neutral
+2025-06-04 04:33:22,950 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 04:33:22,973 - __main__ - INFO -   swing_points: 26 Swing Highs, 23 Swing Lows
+2025-06-04 04:33:22,973 - __main__ - INFO -   bos_choch: {'type': 'no_signal', 'level': None, 'direction': None}
+2025-06-04 04:33:22,973 - __main__ - INFO -   fvg: {'type': 'no_fvg', 'zone': None}
+2025-06-04 04:33:22,973 - __main__ - INFO -   eq_zone: {'eq_high': [np.float64(190.64), np.float64(191.17), np.float64(192.36), np.float64(192.97), np.float64(193.18), np.float64(196.25), np.float64(196.72), np.float64(201.98), np.float64(205.57)], 'eq_low': [np.float64(188.68), np.float64(189.27), np.float64(190.44), np.float64(191.13), np.float64(194.3), np.float64(199.97)]}
+2025-06-04 04:33:22,973 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 04:23:22.943438'), 'high': np.float64(192.1713713020891), 'low': np.float64(190.25921835380964), 'type': 'bullish'}, 'bearish_ob': {'start_time': Timestamp('2025-06-04 03:28:22.943438'), 'high': np.float64(205.58265819718034), 'low': np.float64(203.37450173587334), 'type': 'bearish'}}
+2025-06-04 04:33:22,973 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 04:33:22,974 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-04 04:33:22,974 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-04 04:33:22,974 - __main__ - INFO -   timeframe: 5m
+2025-06-04 04:33:22,974 - __main__ - INFO -   signal: BUY
+2025-06-04 04:33:22,974 - __main__ - INFO -   strength: potential_buy
+2025-06-04 04:33:22,974 - __main__ - INFO -   entry_price: 200.9847
+2025-06-04 04:33:22,974 - __main__ - INFO -   stop_loss: 189.3079
+2025-06-04 04:33:22,974 - __main__ - INFO -   take_profit_1: 212.6614
+2025-06-04 04:33:22,974 - __main__ - INFO -   take_profit_2: 224.3381
+2025-06-04 04:33:22,974 - __main__ - INFO -   take_profit_3: 236.0148
+2025-06-04 04:33:22,974 - __main__ - INFO -   risk_reward_ratio_base: 1:1.0
+2025-06-04 04:33:22,974 - __main__ - INFO -   reason: Konfluensi Bullish: EMA: Strong Bullish Trend, RSI: Not Overbought (52.83), BB: Cross Above Middle, SMC: Bullish OB Present, SMC: Price near/in/entering Bullish OB (reaction), SMC: Equal Low (199.97) swept and price reacting., Potential Confluence: Price reacting at POI with momentum confirmation. | SL based on Bullish OB.
+2025-06-04 04:33:22,974 - __main__ - INFO - Sinyal berhasil dikirim ke Telegram (mode simulasi/dinonaktifkan).
+2025-06-04 04:33:22,975 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis berikutnya...
+2025-06-04 04:38:22,975 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 04:38:22,975 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 04:38:22,978 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 04:38:22,978 - __main__ - INFO - Harga Penutupan Terakhir: 202.4686, Harga Pembukaan Terakhir: 198.0560
+2025-06-04 04:38:22,978 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 04:38:22,983 - __main__ - INFO -   ema_9: 197.5625
+2025-06-04 04:38:22,983 - __main__ - INFO -   ema_21: 195.4208
+2025-06-04 04:38:22,983 - __main__ - INFO -   ema_50: 190.7069
+2025-06-04 04:38:22,983 - __main__ - INFO -   ema_100: 182.6408
+2025-06-04 04:38:22,983 - __main__ - INFO -   ema_200: 167.8744
+2025-06-04 04:38:22,983 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 04:38:22,983 - __main__ - INFO -   rsi: 56.2711
+2025-06-04 04:38:22,983 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 04:38:22,983 - __main__ - INFO -   macd: 2.3437
+2025-06-04 04:38:22,983 - __main__ - INFO -   macd_signal_line: 2.1105
+2025-06-04 04:38:22,983 - __main__ - INFO -   macd_hist: 0.2332
+2025-06-04 04:38:22,983 - __main__ - INFO -   macd_trend: bullish
+2025-06-04 04:38:22,983 - __main__ - INFO -   macd_crossover_signal: bullish_crossover
+2025-06-04 04:38:22,983 - __main__ - INFO -   bb_upper: 204.9246
+2025-06-04 04:38:22,983 - __main__ - INFO -   bb_lower: 185.9694
+2025-06-04 04:38:22,983 - __main__ - INFO -   bb_middle: 195.4470
+2025-06-04 04:38:22,983 - __main__ - INFO -   bb_signal: neutral_band
+2025-06-04 04:38:22,983 - __main__ - INFO -   stoch_k: 0.5441
+2025-06-04 04:38:22,983 - __main__ - INFO -   stoch_d: 0.4640
+2025-06-04 04:38:22,983 - __main__ - INFO -   stoch_signal: bullish
+2025-06-04 04:38:22,983 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 04:38:23,006 - __main__ - INFO -   swing_points: 25 Swing Highs, 25 Swing Lows
+2025-06-04 04:38:23,006 - __main__ - INFO -   bos_choch: {'type': 'no_signal', 'level': None, 'direction': None}
+2025-06-04 04:38:23,006 - __main__ - INFO -   fvg: {'type': 'bullish_fvg', 'zone': [np.float64(195.2446925186486), np.float64(201.45625003805253)]}
+2025-06-04 04:38:23,006 - __main__ - INFO -   eq_zone: {'eq_high': [np.float64(184.81), np.float64(187.01), np.float64(187.79), np.float64(189.99), np.float64(190.61), np.float64(192.09), np.float64(193.83), np.float64(197.94), np.float64(199.0)], 'eq_low': [np.float64(185.15), np.float64(185.48), np.float64(185.92), np.float64(189.43), np.float64(190.2), np.float64(191.9), np.float64(192.71), np.float64(195.86), np.float64(196.68)]}
+2025-06-04 04:38:23,006 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 04:23:22.975762'), 'high': np.float64(195.2446925186486), 'low': np.float64(193.08705946262296), 'type': 'bullish'}, 'bearish_ob': {'start_time': Timestamp('2025-06-04 03:28:22.975762'), 'high': np.float64(197.9363449107538), 'low': np.float64(195.86103910316515), 'type': 'bearish'}}
+2025-06-04 04:38:23,006 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 04:38:23,007 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-04 04:38:23,007 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-04 04:38:23,007 - __main__ - INFO -   timeframe: 5m
+2025-06-04 04:38:23,007 - __main__ - INFO -   signal: BUY
+2025-06-04 04:38:23,007 - __main__ - INFO -   strength: potential_buy
+2025-06-04 04:38:23,007 - __main__ - INFO -   entry_price: 202.4686
+2025-06-04 04:38:23,007 - __main__ - INFO -   stop_loss: 192.1216
+2025-06-04 04:38:23,007 - __main__ - INFO -   take_profit_1: 212.8156
+2025-06-04 04:38:23,007 - __main__ - INFO -   take_profit_2: 223.1625
+2025-06-04 04:38:23,007 - __main__ - INFO -   take_profit_3: 233.5095
+2025-06-04 04:38:23,007 - __main__ - INFO -   risk_reward_ratio_base: 1:1.0
+2025-06-04 04:38:23,007 - __main__ - INFO -   reason: Konfluensi Bullish: EMA: Strong Bullish Trend, MACD: Bullish Momentum, RSI: Not Overbought (56.27), Stoch RSI: Bullish Momentum/Crossover, SMC: Bullish FVG Present, SMC: Price in/entering Bullish FVG (reaction), SMC: Bullish OB Present, Potential Confluence: Price reacting at POI with momentum confirmation. | SL based on Bullish OB.
+2025-06-04 04:38:23,007 - __main__ - INFO - Sinyal berhasil dikirim ke Telegram (mode simulasi/dinonaktifkan).
+2025-06-04 04:38:23,007 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis berikutnya...
+2025-06-04 04:43:23,007 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 04:43:23,008 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 04:43:23,010 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 04:43:23,010 - __main__ - INFO - Harga Penutupan Terakhir: 206.2504, Harga Pembukaan Terakhir: 197.8501
+2025-06-04 04:43:23,010 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 04:43:23,014 - __main__ - INFO -   ema_9: 198.8171
+2025-06-04 04:43:23,014 - __main__ - INFO -   ema_21: 196.0941
+2025-06-04 04:43:23,014 - __main__ - INFO -   ema_50: 191.0020
+2025-06-04 04:43:23,014 - __main__ - INFO -   ema_100: 182.8792
+2025-06-04 04:43:23,014 - __main__ - INFO -   ema_200: 168.7390
+2025-06-04 04:43:23,014 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 04:43:23,014 - __main__ - INFO -   rsi: 57.9824
+2025-06-04 04:43:23,014 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 04:43:23,015 - __main__ - INFO -   macd: 2.8503
+2025-06-04 04:43:23,015 - __main__ - INFO -   macd_signal_line: 2.3992
+2025-06-04 04:43:23,015 - __main__ - INFO -   macd_hist: 0.4510
+2025-06-04 04:43:23,015 - __main__ - INFO -   macd_trend: bullish
+2025-06-04 04:43:23,015 - __main__ - INFO -   macd_crossover_signal: bullish_crossover
+2025-06-04 04:43:23,015 - __main__ - INFO -   bb_upper: 207.0882
+2025-06-04 04:43:23,015 - __main__ - INFO -   bb_lower: 185.0988
+2025-06-04 04:43:23,015 - __main__ - INFO -   bb_middle: 196.0935
+2025-06-04 04:43:23,015 - __main__ - INFO -   bb_signal: neutral_band
+2025-06-04 04:43:23,015 - __main__ - INFO -   stoch_k: 0.6795
+2025-06-04 04:43:23,015 - __main__ - INFO -   stoch_d: 0.4613
+2025-06-04 04:43:23,015 - __main__ - INFO -   stoch_signal: bullish
+2025-06-04 04:43:23,015 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 04:43:23,042 - __main__ - INFO -   swing_points: 20 Swing Highs, 22 Swing Lows
+2025-06-04 04:43:23,042 - __main__ - INFO -   bos_choch: {'type': 'bullish_bos', 'level': np.float64(205.11443600636218), 'direction': 'up'}
+2025-06-04 04:43:23,042 - __main__ - INFO -   fvg: {'type': 'no_fvg', 'zone': None}
+2025-06-04 04:43:23,042 - __main__ - INFO -   eq_zone: {'eq_high': [np.float64(185.48), np.float64(186.54), np.float64(188.81), np.float64(189.16), np.float64(193.47), np.float64(193.61), np.float64(193.72), np.float64(194.65)], 'eq_low': [np.float64(184.69), np.float64(187.28), np.float64(188.1), np.float64(191.55), np.float64(191.66), np.float64(192.64)]}
+2025-06-04 04:43:23,042 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 04:33:23.008055'), 'high': np.float64(198.83938881827126), 'low': np.float64(196.86088743699494), 'type': 'bullish'}, 'bearish_ob': {'start_time': Timestamp('2025-06-04 04:13:23.008055'), 'high': np.float64(195.97408017794857), 'low': np.float64(194.0240893304068), 'type': 'bearish'}}
+2025-06-04 04:43:23,042 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 04:43:23,043 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-04 04:43:23,043 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-04 04:43:23,043 - __main__ - INFO -   timeframe: 5m
+2025-06-04 04:43:23,043 - __main__ - INFO -   signal: BUY
+2025-06-04 04:43:23,043 - __main__ - INFO -   strength: strong_buy
+2025-06-04 04:43:23,043 - __main__ - INFO -   entry_price: 206.2504
+2025-06-04 04:43:23,043 - __main__ - INFO -   stop_loss: 195.8766
+2025-06-04 04:43:23,043 - __main__ - INFO -   take_profit_1: 216.6243
+2025-06-04 04:43:23,043 - __main__ - INFO -   take_profit_2: 226.9981
+2025-06-04 04:43:23,043 - __main__ - INFO -   take_profit_3: 237.372
+2025-06-04 04:43:23,043 - __main__ - INFO -   risk_reward_ratio_base: 1:1.0
+2025-06-04 04:43:23,043 - __main__ - INFO -   reason: Konfluensi Bullish: EMA: Strong Bullish Trend, MACD: Bullish Momentum, RSI: Not Overbought (57.98), Stoch RSI: Bullish Momentum/Crossover, SMC: Bullish Bos, SMC: Bullish OB Present, SMC: Price near/in/entering Bullish OB (reaction), Strong Confluence: All major conditions met including POI reaction. | SL based on Bullish OB.
+2025-06-04 04:43:23,043 - __main__ - INFO - Sinyal berhasil dikirim ke Telegram (mode simulasi/dinonaktifkan).
+2025-06-04 04:43:23,043 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis berikutnya...
+2025-06-04 04:48:23,044 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 04:48:23,044 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 04:48:23,046 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 04:48:23,046 - __main__ - INFO - Harga Penutupan Terakhir: 198.4201, Harga Pembukaan Terakhir: 192.9932
+2025-06-04 04:48:23,046 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 04:48:23,051 - __main__ - INFO -   ema_9: 197.4791
+2025-06-04 04:48:23,051 - __main__ - INFO -   ema_21: 196.2021
+2025-06-04 04:48:23,051 - __main__ - INFO -   ema_50: 192.2761
+2025-06-04 04:48:23,051 - __main__ - INFO -   ema_100: 184.2865
+2025-06-04 04:48:23,051 - __main__ - INFO -   ema_200: 169.0453
+2025-06-04 04:48:23,051 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 04:48:23,051 - __main__ - INFO -   rsi: 52.0153
+2025-06-04 04:48:23,051 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 04:48:23,051 - __main__ - INFO -   macd: 1.5516
+2025-06-04 04:48:23,051 - __main__ - INFO -   macd_signal_line: 1.5841
+2025-06-04 04:48:23,051 - __main__ - INFO -   macd_hist: -0.0325
+2025-06-04 04:48:23,051 - __main__ - INFO -   macd_trend: bearish
+2025-06-04 04:48:23,051 - __main__ - INFO -   macd_crossover_signal: no_crossover
+2025-06-04 04:48:23,051 - __main__ - INFO -   bb_upper: 205.9633
+2025-06-04 04:48:23,051 - __main__ - INFO -   bb_lower: 188.0877
+2025-06-04 04:48:23,051 - __main__ - INFO -   bb_middle: 197.0255
+2025-06-04 04:48:23,052 - __main__ - INFO -   bb_signal: cross_above_middle
+2025-06-04 04:48:23,052 - __main__ - INFO -   stoch_k: 0.4845
+2025-06-04 04:48:23,052 - __main__ - INFO -   stoch_d: 0.6561
+2025-06-04 04:48:23,052 - __main__ - INFO -   stoch_signal: neutral
+2025-06-04 04:48:23,052 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 04:48:23,079 - __main__ - INFO -   swing_points: 25 Swing Highs, 27 Swing Lows
+2025-06-04 04:48:23,079 - __main__ - INFO -   bos_choch: {'type': 'no_signal', 'level': None, 'direction': None}
+2025-06-04 04:48:23,079 - __main__ - INFO -   fvg: {'type': 'bearish_fvg', 'zone': [np.float64(199.41219827915577), np.float64(201.83480649340203)]}
+2025-06-04 04:48:23,079 - __main__ - INFO -   eq_zone: {'eq_high': [np.float64(187.3), np.float64(190.01), np.float64(191.51), np.float64(192.42), np.float64(195.84), np.float64(196.42)], 'eq_low': [np.float64(185.44), np.float64(187.95), np.float64(189.6), np.float64(190.5), np.float64(192.03), np.float64(193.89), np.float64(194.46)]}
+2025-06-04 04:48:23,079 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 04:18:23.044421'), 'high': np.float64(191.2890647148911), 'low': np.float64(189.3674153306237), 'type': 'bullish'}, 'bearish_ob': {'start_time': Timestamp('2025-06-04 04:13:23.044421'), 'high': np.float64(197.00160203372786), 'low': np.float64(195.04138708811865), 'type': 'bearish'}}
+2025-06-04 04:48:23,079 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 04:48:23,079 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-04 04:48:23,079 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-04 04:48:23,079 - __main__ - INFO -   timeframe: 5m
+2025-06-04 04:48:23,079 - __main__ - INFO -   signal: SELL
+2025-06-04 04:48:23,080 - __main__ - INFO -   strength: potential_sell
+2025-06-04 04:48:23,080 - __main__ - INFO -   entry_price: 198.4201
+2025-06-04 04:48:23,080 - __main__ - INFO -   stop_loss: 197.9866
+2025-06-04 04:48:23,080 - __main__ - INFO -   take_profit_1: 197.9866
+2025-06-04 04:48:23,080 - __main__ - INFO -   take_profit_2: 197.5531
+2025-06-04 04:48:23,080 - __main__ - INFO -   take_profit_3: 197.1196
+2025-06-04 04:48:23,080 - __main__ - INFO -   risk_reward_ratio_base: 1:1.0
+2025-06-04 04:48:23,080 - __main__ - INFO -   reason: Konfluensi Bearish: MACD: Bearish Momentum, RSI: Not Oversold (52.02), SMC: Bearish FVG Present, SMC: Bearish OB Present, SMC: Price near/in/entering Bearish OB (reaction), Potential Confluence: Price reacting at POI with momentum confirmation. | SL based on Bearish OB.
+2025-06-04 04:48:23,080 - __main__ - INFO - Sinyal berhasil dikirim ke Telegram (mode simulasi/dinonaktifkan).
+2025-06-04 04:48:23,080 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis berikutnya...
+2025-06-04 07:02:45,644 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 07:02:45,644 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 07:02:45,647 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 07:02:45,647 - __main__ - INFO - Harga Penutupan Terakhir: 207.4683, Harga Pembukaan Terakhir: 199.2100
+2025-06-04 07:02:45,647 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 07:02:45,652 - __main__ - INFO -   ema_9: 199.1099
+2025-06-04 07:02:45,652 - __main__ - INFO -   ema_21: 196.2382
+2025-06-04 07:02:45,652 - __main__ - INFO -   ema_50: 191.2266
+2025-06-04 07:02:45,652 - __main__ - INFO -   ema_100: 183.0025
+2025-06-04 07:02:45,652 - __main__ - INFO -   ema_200: 168.0466
+2025-06-04 07:02:45,652 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 07:02:45,652 - __main__ - INFO -   rsi: 58.5877
+2025-06-04 07:02:45,652 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 07:02:45,652 - __main__ - INFO -   macd: 2.9214
+2025-06-04 07:02:45,652 - __main__ - INFO -   macd_signal_line: 2.3671
+2025-06-04 07:02:45,652 - __main__ - INFO -   macd_hist: 0.5543
+2025-06-04 07:02:45,652 - __main__ - INFO -   macd_trend: bullish
+2025-06-04 07:02:45,652 - __main__ - INFO -   macd_crossover_signal: bullish_crossover
+2025-06-04 07:02:45,652 - __main__ - INFO -   bb_upper: 207.3325
+2025-06-04 07:02:45,652 - __main__ - INFO -   bb_lower: 182.8873
+2025-06-04 07:02:45,652 - __main__ - INFO -   bb_middle: 195.1099
+2025-06-04 07:02:45,652 - __main__ - INFO -   bb_signal: overbought_band
+2025-06-04 07:02:45,652 - __main__ - INFO -   stoch_k: 0.5304
+2025-06-04 07:02:45,652 - __main__ - INFO -   stoch_d: 0.4435
+2025-06-04 07:02:45,652 - __main__ - INFO -   stoch_signal: bullish
+2025-06-04 07:02:45,652 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 07:02:45,678 - __main__ - INFO -   swing_points: 24 Swing Highs, 26 Swing Lows
+2025-06-04 07:02:45,679 - __main__ - INFO -   bos_choch: {'type': 'bullish_bos', 'level': 204.46340573725152, 'direction': 'up', 'timestamp': Timestamp('2025-06-04 06:57:45.644728')}
+2025-06-04 07:02:45,679 - __main__ - INFO -   fvg: {'type': 'bullish_fvg', 'zone': [193.01140768093668, 206.4309419253981], 'timestamp': Timestamp('2025-06-04 06:57:45.644728')}
+2025-06-04 07:02:45,679 - __main__ - INFO -   eq_zone: {'eq_high': [], 'eq_low': [122.43469098388576]}
+2025-06-04 07:02:45,679 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 06:47:45.644728'), 'high': 193.01140768093668, 'low': 191.0908961617234, 'type': 'bullish', 'candle_type': 'bearish_candle_before_move'}, 'bearish_ob': None}
+2025-06-04 07:02:45,679 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 07:02:45,679 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-04 07:02:45,679 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-04 07:02:45,679 - __main__ - INFO -   timeframe: 5m
+2025-06-04 07:02:45,679 - __main__ - INFO -   signal: NO_SIGNAL
+2025-06-04 07:02:45,679 - __main__ - INFO -   strength: none
+2025-06-04 07:02:45,679 - __main__ - INFO -   entry_price: 207.4683
+2025-06-04 07:02:45,679 - __main__ - INFO -   stop_loss: None
+2025-06-04 07:02:45,679 - __main__ - INFO -   take_profit_1: None
+2025-06-04 07:02:45,679 - __main__ - INFO -   take_profit_2: None
+2025-06-04 07:02:45,679 - __main__ - INFO -   take_profit_3: None
+2025-06-04 07:02:45,679 - __main__ - INFO -   risk_reward_ratio_base: None
+2025-06-04 07:02:45,679 - __main__ - INFO -   reason: Konfluensi belum cukup untuk sinyal valid.
+2025-06-04 07:02:45,679 - __main__ - INFO - ⚠️ Tidak ada sinyal trading yang dihasilkan pada saat ini.
+2025-06-04 07:02:45,680 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis berikutnya...
+2025-06-04 07:07:45,680 - __main__ - INFO - 
+--- Memulai Analisis untuk BTCUSDT di Timeframe 5m ---
+2025-06-04 07:07:45,680 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-04 07:07:45,682 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-04 07:07:45,682 - __main__ - INFO - Harga Penutupan Terakhir: 200.5332, Harga Pembukaan Terakhir: 192.5178
+2025-06-04 07:07:45,682 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-04 07:07:45,686 - __main__ - INFO -   ema_9: 196.0004
+2025-06-04 07:07:45,686 - __main__ - INFO -   ema_21: 194.7879
+2025-06-04 07:07:45,686 - __main__ - INFO -   ema_50: 190.7223
+2025-06-04 07:07:45,686 - __main__ - INFO -   ema_100: 182.9131
+2025-06-04 07:07:45,686 - __main__ - INFO -   ema_200: 168.2773
+2025-06-04 07:07:45,686 - __main__ - INFO -   ema_signal: strong_bullish
+2025-06-04 07:07:45,686 - __main__ - INFO -   rsi: 55.0679
+2025-06-04 07:07:45,686 - __main__ - INFO -   rsi_signal: neutral
+2025-06-04 07:07:45,686 - __main__ - INFO -   macd: 1.5774
+2025-06-04 07:07:45,686 - __main__ - INFO -   macd_signal_line: 1.7380
+2025-06-04 07:07:45,686 - __main__ - INFO -   macd_hist: -0.1606
+2025-06-04 07:07:45,686 - __main__ - INFO -   macd_trend: bearish
+2025-06-04 07:07:45,686 - __main__ - INFO -   macd_crossover_signal: no_crossover
+2025-06-04 07:07:45,686 - __main__ - INFO -   bb_upper: 202.1648
+2025-06-04 07:07:45,686 - __main__ - INFO -   bb_lower: 189.1905
+2025-06-04 07:07:45,686 - __main__ - INFO -   bb_middle: 195.6777
+2025-06-04 07:07:45,686 - __main__ - INFO -   bb_signal: cross_above_middle
+2025-06-04 07:07:45,686 - __main__ - INFO -   stoch_k: 0.5442
+2025-06-04 07:07:45,686 - __main__ - INFO -   stoch_d: 0.4498
+2025-06-04 07:07:45,686 - __main__ - INFO -   stoch_signal: bullish
+2025-06-04 07:07:45,686 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-04 07:07:45,706 - __main__ - INFO -   swing_points: 27 Swing Highs, 25 Swing Lows
+2025-06-04 07:07:45,706 - __main__ - INFO -   bos_choch: {'type': 'no_signal', 'level': None, 'direction': None, 'timestamp': None}
+2025-06-04 07:07:45,706 - __main__ - INFO -   fvg: {'type': 'no_fvg', 'zone': None, 'timestamp': None}
+2025-06-04 07:07:45,706 - __main__ - INFO -   eq_zone: {'eq_high': [162.73204868067864], 'eq_low': []}
+2025-06-04 07:07:45,706 - __main__ - INFO -   order_block: {'bullish_ob': {'start_time': Timestamp('2025-06-04 06:57:45.680526'), 'high': 193.48035664493742, 'low': 191.55517896687837, 'type': 'bullish', 'candle_type': 'recent_bearish_candle'}, 'bearish_ob': None}
+2025-06-04 07:07:45,706 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-04 07:07:45,707 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-04 07:07:45,707 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-04 07:07:45,707 - __main__ - INFO -   timeframe: 5m
+2025-06-04 07:07:45,707 - __main__ - INFO -   signal: NO_SIGNAL
+2025-06-04 07:07:45,707 - __main__ - INFO -   strength: none
+2025-06-04 07:07:45,707 - __main__ - INFO -   entry_price: 200.5332
+2025-06-04 07:07:45,707 - __main__ - INFO -   stop_loss: None
+2025-06-04 07:07:45,707 - __main__ - INFO -   take_profit_1: None
+2025-06-04 07:07:45,707 - __main__ - INFO -   take_profit_2: None
+2025-06-04 07:07:45,707 - __main__ - INFO -   take_profit_3: None
+2025-06-04 07:07:45,707 - __main__ - INFO -   risk_reward_ratio_base: None
+2025-06-04 07:07:45,707 - __main__ - INFO -   reason: Konfluensi belum cukup untuk sinyal valid.
+2025-06-04 07:07:45,707 - __main__ - INFO - ⚠️ Tidak ada sinyal trading yang dihasilkan pada saat ini.
+2025-06-04 07:07:45,707 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis berikutnya...
