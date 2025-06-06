@@ -1,0 +1,28 @@
+nohup: ignoring input
+INFO:     Will watch for changes in these directories: ['/root/PROJECT_GPTS_CORE']
+INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:     Started reloader process [4070] using WatchFiles
+2025-06-06 10:56:49,639 - data_sources.bybit_candle_fetcher - INFO - Bybit HTTP session initialized.
+2025-06-06 10:56:49,908 - utils.config_loader - INFO - Environment variables loaded from .env file.
+INFO:utils.config_loader:Environment variables loaded from .env file.
+2025-06-06 10:56:49,908 - utils.config_loader - WARNING - Warning: Missing essential configuration keys in .env: BYBIT_SECRET_KEY
+WARNING:utils.config_loader:Warning: Missing essential configuration keys in .env: BYBIT_SECRET_KEY
+2025-06-06 10:56:49,908 - utils.config_loader - WARNING - Some functionalities might not work correctly without these keys.
+WARNING:utils.config_loader:Some functionalities might not work correctly without these keys.
+2025-06-06 10:56:49,908 - utils.config_loader - INFO - Configuration loaded and validated.
+INFO:utils.config_loader:Configuration loaded and validated.
+2025-06-06 10:56:50,285 - data_sources.binance_candle_fetcher - INFO - Binance API client initialized successfully.
+INFO:data_sources.binance_candle_fetcher:Binance API client initialized successfully.
+2025-06-06 10:56:50,286 - core.analyzer_entry - INFO - AnalyzerEntry initialized with data fetchers.
+INFO:core.analyzer_entry:AnalyzerEntry initialized with data fetchers.
+INFO:     Started server process [4072]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:GPT-S API:📡 Real-time analyze endpoint dipanggil untuk BTCUSDT (1h) di BYBIT
+/root/PROJECT_GPTS_CORE/api/main.py:110: RuntimeWarning: coroutine 'AnalyzerEntry.analyze_coin' was never awaited
+  analyzer.analyze_coin(symbol=symbol, timeframe=timeframe, exchange=exchange)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+INFO:     127.0.0.1:50670 - "GET /analyze?symbol=BTCUSDT HTTP/1.1" 200 OK
+INFO:GPT-S API:📡 Real-time analyze endpoint dipanggil untuk BTCUSDT (1h) di BYBIT
+INFO:     112.78.156.232:0 - "GET /analyze?symbol=BTCUSDT HTTP/1.0" 200 OK
+INFO:     112.78.156.232:0 - "GET /favicon.ico HTTP/1.0" 404 Not Found

@@ -2,35 +2,26 @@ from fastapi import FastAPI, Header, HTTPException, Depends
 from pydantic import BaseModel, Field
 from typing import Dict, Any, Optional
 from logic_engine.signal_builder import generate_trading_signal
+from core.analyzer_entry import AnalyzerEntry
 import logging
 
-# === SETUP LOGGER ===
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("GPT-S API")
 
-# === FASTAPI INIT ===
 app = FastAPI(
     title="GPT-S Smart Market Entry Analyzer API",
     description="API untuk menghasilkan sinyal trading kripto berdasarkan analisis konfluensi SMC, indikator klasik, volume delta, orderbook, dan data on-chain Solana.",
     version="1.0.0"
 )
 
-# === API KEY SETUP ===
-# Untuk lingkungan produksi, sebaiknya API_KEY diambil dari environment variables
-# import os
-# API_KEY = os.getenv("GPTS_API_KEY", "your_default_secure_key_here")
 API_KEY = "GPTS_SECRET_2024"
 
-# Dependency untuk validasi API Key
 async def verify_api_key(authorization: str = Header(...)):
     if authorization != f"Bearer {API_KEY}":
         logger.warning(f"Unauthorized access attempt with token: {authorization}")
         raise HTTPException(status_code=401, detail="Unauthorized: Invalid API Key")
     return True
 
-# === REQUEST MODELS (Refleksi dari Skema OpenAPI yang Sempurna) ===
-
-# Sub-models untuk struktur data yang lebih detail
 class IndicatorsData(BaseModel):
     ema_signal: str
     rsi_signal: str
@@ -40,7 +31,7 @@ class IndicatorsData(BaseModel):
     stoch_signal: str
 
 class SmcData(BaseModel):
-    swing_points: Dict[str, Any] # Bisa didetailkan lebih lanjut jika diperlukan
+    swing_points: Dict[str, Any]
     bos_choch: Dict[str, Any]
     fvg: Dict[str, Any]
     eq_zone: Dict[str, Any]
@@ -66,7 +57,6 @@ class MacroData(BaseModel):
     open_interest_change: str
     news_sentiment: Optional[str] = None
 
-# Model utama untuk permintaan analisis
 class AnalysisRequest(BaseModel):
     symbol: str = Field(..., example="BTCUSDT")
     timeframe: str = Field(..., example="5m")
@@ -74,10 +64,9 @@ class AnalysisRequest(BaseModel):
     smc: SmcData
     volume_delta: VolumeDeltaData
     orderbook: OrderbookData
-    on_chain: Optional[OnChainData] = None # Opsional
-    macro_data: Optional[MacroData] = None # Opsional
+    on_chain: Optional[OnChainData] = None
+    macro_data: Optional[MacroData] = None
 
-# Model untuk respons sinyal trading (sesuai skema OpenAPI)
 class TradingSignalResponse(BaseModel):
     signal: str = Field(..., example="BUY")
     entry: Optional[float] = Field(None, example=20700.0)
@@ -88,21 +77,19 @@ class TradingSignalResponse(BaseModel):
     reason: str = Field(..., example="Konfluensi kuat: Bullish BOS, FVG terisi sebagian, Order Block belum dimitigasi, Volume Delta positif, dan pergerakan whale mendukung.")
     confidence_score: Optional[float] = Field(None, example=0.85, description="Skor kepercayaan sinyal (0-1).")
 
-# === ENDPOINT ===
 @app.post(
     "/generate_signal",
-    response_model=TradingSignalResponse, # Menentukan model respons untuk validasi & dokumentasi
+    response_model=TradingSignalResponse,
     summary="Bangun sinyal trading dari data analisa yang komprehensif",
-    dependencies=[Depends(verify_api_key)] # Menerapkan API Key verification
+    dependencies=[Depends(verify_api_key)]
 )
 def generate_signal_endpoint(data: AnalysisRequest):
     logger.info(f"🔍 Analyzing signal for {data.symbol} ({data.timeframe}) with full data.")
 
-    # Panggil fungsi generate_trading_signal dengan semua data yang relevan
     signal_result = generate_trading_signal(
         symbol=data.symbol,
         timeframe=data.timeframe,
-        classic_indicators=data.indicators.dict(), # Pastikan ini diubah ke dict jika generate_trading_signal menerimanya demikian
+        classic_indicators=data.indicators.dict(),
         smc_signals=data.smc.dict(),
         volume_delta_data=data.volume_delta.dict(),
         orderbook_data=data.orderbook.dict(),
@@ -111,6 +98,17 @@ def generate_signal_endpoint(data: AnalysisRequest):
     )
 
     logger.info(f"✅ Signal generated for {data.symbol}: {signal_result['signal']}")
-
-    # FastAPI akan otomatis mengubah dict ke JSON dan memvalidasi dengan response_model
     return signal_result
+
+# === ENDPOINT TAMBAHAN UNTUK GPT (LIVE TRADING SIGNAL) ===
+analyzer = AnalyzerEntry()
+
+@app.get("/analyze")
+def analyze(symbol: str, timeframe: str = "1h", exchange: str = "bybit"):
+    try:
+        logger.info(f"📡 Real-time analyze endpoint dipanggil untuk {symbol} ({timeframe}) di {exchange.upper()}")
+        analyzer.analyze_coin(symbol=symbol, timeframe=timeframe, exchange=exchange)
+        return {"status": "ok", "message": f"Analisa dan sinyal untuk {symbol} dikirim ke Telegram."}
+    except Exception as e:
+        logger.error(f"❌ Gagal menjalankan analyze endpoint: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
