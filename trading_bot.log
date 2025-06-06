@@ -460,3 +460,61 @@ Menunggu 5m (300 detik) untuk analisis berikutnya...
 2025-06-05 11:27:06,295 - __main__ - INFO - 
 Menunggu 5m (300 detik) untuk analisis otomatis berikutnya...
 2025-06-05 11:29:07,656 - __main__ - INFO - 🛑 Bot trading dihentikan oleh pengguna.
+2025-06-05 12:43:17,063 - __main__ - INFO - Memulai bot trading dalam mode otomatis...
+2025-06-05 12:43:17,063 - __main__ - INFO - 
+--- Memulai Analisis Otomatis untuk BTCUSDT di Timeframe 5m ---
+2025-06-05 12:43:17,064 - __main__ - INFO - Mengambil 300 candle data simulasi...
+2025-06-05 12:43:17,067 - __main__ - INFO - Data simulasi berhasil dibuat.
+2025-06-05 12:43:17,068 - __main__ - INFO - Harga Penutupan Terakhir: 195.0150, Harga Pembukaan Terakhir: 192.0275
+2025-06-05 12:43:17,069 - __main__ - INFO - 
+--- Menghitung Indikator Klasik ---
+2025-06-05 12:43:17,078 - __main__ - INFO -   ema_9: 194.3699
+2025-06-05 12:43:17,078 - __main__ - INFO -   ema_21: 193.5246
+2025-06-05 12:43:17,078 - __main__ - INFO -   ema_50: 189.8661
+2025-06-05 12:43:17,078 - __main__ - INFO -   ema_100: 182.2208
+2025-06-05 12:43:17,078 - __main__ - INFO -   ema_200: 167.6135
+2025-06-05 12:43:17,078 - __main__ - INFO -   ema_signal: strong_bullish_aligned
+2025-06-05 12:43:17,078 - __main__ - INFO -   rsi: 51.7936
+2025-06-05 12:43:17,078 - __main__ - INFO -   rsi_signal: bullish_momentum
+2025-06-05 12:43:17,078 - __main__ - INFO -   rsi_divergence: no_divergence
+2025-06-05 12:43:17,078 - __main__ - INFO -   macd: 1.2117
+2025-06-05 12:43:17,078 - __main__ - INFO -   macd_signal_line: 1.4544
+2025-06-05 12:43:17,078 - __main__ - INFO -   macd_hist: -0.2428
+2025-06-05 12:43:17,078 - __main__ - INFO -   macd_trend: bearish_momentum
+2025-06-05 12:43:17,078 - __main__ - INFO -   macd_crossover_signal: no_crossover
+2025-06-05 12:43:17,078 - __main__ - INFO -   bb_upper: 200.2890
+2025-06-05 12:43:17,079 - __main__ - INFO -   bb_lower: 187.8189
+2025-06-05 12:43:17,079 - __main__ - INFO -   bb_middle: 194.0540
+2025-06-05 12:43:17,079 - __main__ - INFO -   bb_width: 6.4261
+2025-06-05 12:43:17,079 - __main__ - INFO -   bb_signal: cross_above_middle
+2025-06-05 12:43:17,079 - __main__ - INFO -   bb_volatility_signal: squeeze_potential
+2025-06-05 12:43:17,079 - __main__ - INFO -   stoch_k: 0.5341
+2025-06-05 12:43:17,079 - __main__ - INFO -   stoch_d: 0.6187
+2025-06-05 12:43:17,079 - __main__ - INFO -   stoch_signal: oversold_bearish_momentum
+2025-06-05 12:43:17,079 - __main__ - INFO - 
+--- Menganalisis Struktur SMC ---
+2025-06-05 12:43:17,158 - __main__ - INFO -   swing_points: 12 Swing Highs, 13 Swing Lows
+2025-06-05 12:43:17,158 - __main__ - INFO -   bos_choch: {'type': 'no_signal', 'level': None, 'direction': None, 'timestamp': None, 'current_bias': 'bullish'}
+2025-06-05 12:43:17,158 - __main__ - INFO -   fvg: {'type': 'bearish_fvg', 'zone': [195.99004263161584, 196.13655712859338], 'timestamp': Timestamp('2025-06-05 12:33:17.064079'), 'all_unmitigated_fvg': [{'type': 'bearish_fvg', 'zone': [98.97044424893362, 106.96946421707686], 'timestamp': Timestamp('2025-06-04 15:03:17.064079')}, {'type': 'bullish_fvg', 'zone': [98.97044424893362, 108.78056668851475], 'timestamp': Timestamp('2025-06-04 15:13:17.064079')}, {'type': 'bearish_fvg', 'zone': [118.34603968690894, 121.67517503127056], 'timestamp': Timestamp('2025-06-04 19:03:17.064079')}, {'type': 'bearish_fvg', 'zone': [132.42685452550245, 134.39252968994236], 'timestamp': Timestamp('2025-06-04 22:18:17.064079')}, {'type': 'bullish_fvg', 'zone': [173.39392912886495, 173.42261172300286], 'timestamp': Timestamp('2025-06-05 07:38:17.064079')}, {'type': 'bearish_fvg', 'zone': [173.0794349354043, 174.59596433306638], 'timestamp': Timestamp('2025-06-05 08:08:17.064079')}, {'type': 'bearish_fvg', 'zone': [195.99004263161584, 196.13655712859338], 'timestamp': Timestamp('2025-06-05 12:33:17.064079')}]}
+2025-06-05 12:43:17,158 - __main__ - INFO -   eq_zone: {'eq_high': [], 'eq_low': []}
+2025-06-05 12:43:17,158 - __main__ - INFO -   order_block: {'bullish_ob': None, 'bearish_ob': None}
+2025-06-05 12:43:17,158 - __main__ - INFO - 
+--- Membangun Sinyal Trading ---
+2025-06-05 12:43:17,159 - __main__ - INFO - 
+--- Sinyal Trading Dihasilkan ---
+2025-06-05 12:43:17,159 - __main__ - INFO -   symbol: BTCUSDT
+2025-06-05 12:43:17,159 - __main__ - INFO -   timeframe: 5m
+2025-06-05 12:43:17,159 - __main__ - INFO -   signal: NO_SIGNAL
+2025-06-05 12:43:17,159 - __main__ - INFO -   strength: none
+2025-06-05 12:43:17,159 - __main__ - INFO -   entry_price: 195.015
+2025-06-05 12:43:17,159 - __main__ - INFO -   stop_loss: None
+2025-06-05 12:43:17,159 - __main__ - INFO -   take_profit_1: None
+2025-06-05 12:43:17,159 - __main__ - INFO -   take_profit_2: None
+2025-06-05 12:43:17,159 - __main__ - INFO -   take_profit_3: None
+2025-06-05 12:43:17,159 - __main__ - INFO -   risk_reward_ratio_base: None
+2025-06-05 12:43:17,159 - __main__ - INFO -   reason: Konfluensi belum cukup untuk sinyal valid.
+2025-06-05 12:43:17,159 - __main__ - INFO - ⚠️ Tidak ada sinyal trading yang dihasilkan pada saat ini.
+2025-06-05 12:43:17,159 - __main__ - INFO - --- Analisis Otomatis untuk BTCUSDT Selesai ---
+
+2025-06-05 12:43:17,159 - __main__ - INFO - 
+Menunggu 5m (300 detik) untuk analisis otomatis berikutnya...

@@ -1,78 +1,132 @@
+import os
+import time
+from datetime import datetime, timedelta
 import pandas as pd
 from binance.client import Client
 from binance.enums import HistoricalKlinesType
+from binance.exceptions import BinanceAPIException, BinanceRequestException
+
+# Logger setup
+try:
+    from utils.logger import setup_logger
+    logger = setup_logger(__name__)
+except ImportError:
+    import logging
+    logger = logging.getLogger(__name__)
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    logger.warning("utils/logger.py not found. Using basic logging.")
+
+# Load environment variables from root .env
+from dotenv import load_dotenv
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 class BinanceCandleFetcher:
-    def __init__(self, api_key: str, secret_key: str):
-        self.client = Client(api_key, secret_key)
+    def __init__(self):
+        api_key = os.getenv("BINANCE_API_KEY")
+        secret_key = os.getenv("BINANCE_SECRET_KEY")
 
-    def fetch_candles(self, symbol: str, interval: str, limit: int = 500) -> pd.DataFrame:
-        """
-        Mengambil data candlestick (OHLCV) dari Binance.
+        if not api_key or not secret_key:
+            logger.critical("BINANCE_API_KEY or BINANCE_SECRET_KEY not found in environment variables.")
+            self.client = None
+        else:
+            try:
+                self.client = Client(api_key, secret_key)
+                logger.info("Binance API client initialized successfully.")
+            except Exception as e:
+                logger.critical(f"Failed to initialize Binance API client: {e}")
+                self.client = None
 
-        Args:
-            symbol (str): Simbol trading (misal, 'BTCUSDT').
-            interval (str): Interval waktu candle (misal, '1m', '5m', '1h', '1d').
-            limit (int): Jumlah candle yang akan diambil. Max 1000 per request.
-
-        Returns:
-            pd.DataFrame: DataFrame yang berisi data OHLCV dengan kolom:
-                          ['timestamp', 'open', 'high', 'low', 'close', 'volume']
-                          Timestamp akan menjadi index DataFrame.
-        """
-        try:
-            # Menggunakan kline_type.SPOT untuk data spot
-            klines = self.client.get_historical_klines(
-                symbol=symbol,
-                interval=interval,
-                kline_type=HistoricalKlineType.SPOT, # Pastikan ini disetel untuk spot trading
-                limit=limit
-            )
-
-            if not klines:
-                print(f"No klines data found for {symbol} on {interval}.")
-                return pd.DataFrame()
-
-            # Konversi data ke DataFrame
-            df = pd.DataFrame(klines, columns=[
-                'open_time', 'open', 'high', 'low', 'close', 'volume',
-                'close_time', 'quote_asset_volume', 'number_of_trades',
-                'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore'
-            ])
-
-            # Konversi kolom numerik ke tipe float
-            numeric_cols = ['open', 'high', 'low', 'close', 'volume', 'quote_asset_volume',
-                            'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume']
-            for col in numeric_cols:
-                df[col] = pd.to_numeric(df[col], errors='coerce')
-
-            # Konversi open_time ke datetime dan atur sebagai index
-            df['open_time'] = pd.to_datetime(df['open_time'], unit='ms')
-            df = df.set_index('open_time')
-            
-            # Pilih kolom yang relevan dan urutkan
-            df = df[['open', 'high', 'low', 'close', 'volume']]
-            df = df.sort_index() # Pastikan data terurut berdasarkan waktu
-
-            return df
-
-        except Exception as e:
-            print(f"Error fetching Binance candles for {symbol} - {interval}: {e}")
+    def _process_klines(self, klines):
+        if not klines:
             return pd.DataFrame()
 
-# Contoh penggunaan (untuk pengujian individual, bisa dihapus jika tidak diperlukan)
-if __name__ == "__main__":
-    # Ini hanya akan berjalan jika Anda menjalankan file ini secara langsung
-    # Bukan saat diimpor oleh main.py
-    # Pastikan Anda punya API Key dan Secret Key Binance yang valid di sini untuk tes
-    # api_key = "YOUR_BINANCE_API_KEY"
-    # secret_key = "YOUR_BINANCE_SECRET_KEY"
+        df = pd.DataFrame(klines, columns=[
+            'open_time', 'open', 'high', 'low', 'close', 'volume',
+            'close_time', 'quote_asset_volume', 'number_of_trades',
+            'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore'])
 
-    # fetcher = BinanceCandleFetcher(api_key, secret_key)
-    # data = fetcher.fetch_candles("BTCUSDT", "1h", limit=100)
-    # if not data.empty:
-    #     print("Data Binance berhasil diambil:")
-    #     print(data.head())
-    # else:
-    #     print("Gagal mengambil data dari Binance.")
-    pass # Biarkan pass jika tidak ingin menjalankan contoh di sini
+        for col in ['open', 'high', 'low', 'close', 'volume', 'quote_asset_volume',
+                    'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume']:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
+        df['open_time'] = pd.to_datetime(df['open_time'], unit='ms')
+        df.set_index('open_time', inplace=True)
+        return df[['open', 'high', 'low', 'close', 'volume']].sort_index()
+
+    def fetch_candles(self, symbol, interval, start_str=None, end_str=None, limit=None,
+                      klines_type=HistoricalKlinesType.SPOT, max_retries=5, retry_delay=5):
+
+        if self.client is None:
+            logger.error("Binance API client is not initialized. Cannot fetch candles.")
+            return pd.DataFrame()
+
+        for attempt in range(max_retries):
+            try:
+                if start_str:
+                    logger.info(f"Fetching historical Binance candles for {symbol} ({interval}) from '{start_str}' to '{end_str or 'now'}'.")
+                    klines = self.client.get_historical_klines(
+                        symbol=symbol,
+                        interval=interval,
+                        start_str=start_str,
+                        end_str=end_str,
+                        klines_type=klines_type
+                    )
+                else:
+                    if not limit:
+                        limit = 500
+                    logger.info(f"Fetching latest {limit} Binance candles for {symbol} ({interval}).")
+                    klines = self.client.get_historical_klines(
+                        symbol=symbol,
+                        interval=interval,
+                        limit=limit,
+                        klines_type=klines_type
+                    )
+
+                if not klines:
+                    logger.info(f"No klines data found for {symbol} on {interval}.")
+                    return pd.DataFrame()
+
+                logger.info(f"Fetched {len(klines)} candles for {symbol}.")
+                return self._process_klines(klines)
+
+            except BinanceAPIException as e:
+                if e.code == -1003:
+                    logger.warning(f"Rate limit hit (attempt {attempt+1}). Retrying in {retry_delay}s...")
+                    time.sleep(retry_delay)
+                elif e.code == -1121:
+                    logger.error(f"Invalid symbol: {symbol}.")
+                    return pd.DataFrame()
+                else:
+                    logger.error(f"API error (attempt {attempt+1}): {e}. Retrying...")
+                    time.sleep(retry_delay)
+            except BinanceRequestException as e:
+                logger.error(f"Request error (attempt {attempt+1}): {e}. Retrying...")
+                time.sleep(retry_delay)
+            except Exception as e:
+                logger.error(f"Unexpected error (attempt {attempt+1}): {e}. Retrying...")
+                time.sleep(retry_delay)
+
+        logger.error(f"Failed to fetch candles for {symbol} after {max_retries} attempts.")
+        return pd.DataFrame()
+
+# --- TEST BLOCK ---
+if __name__ == "__main__":
+    logger.info("Starting Binance candle fetcher test...")
+
+    fetcher = BinanceCandleFetcher()
+
+    if fetcher.client:
+        print("\n--- Example 1: Latest 1h BTCUSDT candles ---")
+        df1 = fetcher.fetch_candles("BTCUSDT", "1h", limit=500)
+        print(df1.head())
+
+        print("\n--- Example 2: Historical 4h ETHUSDT last 3 days ---")
+        df2 = fetcher.fetch_candles("ETHUSDT", "4h", start_str="3 days ago", end_str="now")
+        print(df2.head(), df2.tail())
+
+        print("\n--- Example 3: Invalid symbol test ---")
+        df3 = fetcher.fetch_candles("FAKESYMBOL", "1h", limit=10)
+        if df3.empty:
+            print("✅ Invalid symbol handled correctly.")
+
+    logger.info("Binance candle fetcher test finished.")
