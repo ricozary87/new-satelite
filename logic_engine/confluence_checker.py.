@@ -4,11 +4,8 @@
 # dan menggunakan helper functions untuk keterbacaan dan pemeliharaan yang lebih baik.
 
 import logging
-# Import helper functions dari confluence_helpers.py
 from .confluence_helpers import _is_price_in_zone, _is_price_near_zone, _is_price_entering_zone, safe_get_nested
-# Import fungsi pengecekan beli dari buy_confluence_rules.py
 from .buy_confluence_rules import check_buy_confluence
-# Import fungsi pengecekan jual dari sell_confluence_rules.py
 from .sell_confluence_rules import check_sell_confluence
 
 logger = logging.getLogger(__name__)
